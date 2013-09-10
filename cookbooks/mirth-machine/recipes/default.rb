@@ -13,6 +13,7 @@ package "expect" do
   action :install
 end
 include_recipe 'java::oracle'
+include_recipe 'openvpn'
 
 remote_file "mirth_installer.sh" do 
   source "http://downloads.mirthcorp.com/connect/2.2.3.6825.b80/mirthconnect-2.2.3.6825.b80-unix.sh"
