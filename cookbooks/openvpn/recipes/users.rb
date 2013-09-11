@@ -16,8 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+user_bags = data_bag('users')
+users = []
+user_bags.each{|u| users << data_bag_item('users', u)}
 
-search("users", "*:*") do |u|
+users.each do |u|
   execute "generate-openvpn-#{u['id']}" do
     command "./pkitool #{u['id']}"
     cwd "/etc/openvpn/easy-rsa"

@@ -14,6 +14,7 @@ package "expect" do
 end
 include_recipe 'java::oracle'
 include_recipe 'openvpn'
+# include_recipe 'openvpn::users'
 
 remote_file "mirth_installer.sh" do 
   source "http://downloads.mirthcorp.com/connect/2.2.3.6825.b80/mirthconnect-2.2.3.6825.b80-unix.sh"

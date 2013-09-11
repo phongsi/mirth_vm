@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     config.omnibus.chef_version = "10.14.2"
     chef.add_recipe("mirth-machine")
+    chef.data_bags_path = "data_bags"
   end
 
   config.vm.provider :virtualbox do |vb, override|
