@@ -13,7 +13,7 @@ package "expect" do
   action :install
 end
 include_recipe 'java::oracle'
-include_recipe 'openvpn'
+# include_recipe 'openvpn'
 # include_recipe 'openvpn::users'
 
 remote_file "mirth_installer.sh" do 
