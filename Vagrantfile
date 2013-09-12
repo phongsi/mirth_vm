@@ -28,5 +28,10 @@ Vagrant.configure("2") do |config|
 
     override.ssh.username = ENV["AWS_SSH_USER"]
     override.ssh.private_key_path = ENV["AWS_KEY_PATH"]
+
+    aws.private_ip_address = ENV["AWS_PRIVATE_IP"]
+    aws.subnet_id = ENV["AWS_SUBNET_ID"]
+    aws.security_groups = [ENV["AWS_SECURITY_GROUP"]]
+    aws.elastic_ip = true
   end
 end
