@@ -1,0 +1,60 @@
+# Mirth Connect configuration file
+
+# directories
+dir.appdata = <%= node[:dir][:appdata] %>
+dir.tempdata = <%= node[:dir][:tempdata] %>
+
+# ports
+http.port = <%= node[:http][:port] %>
+https.port = <%= node[:https][:port] %>
+jmx.port = <%= node[:jmx][:port] %>
+
+# password requirements
+password.minlength = <%= node[:password][:minlength] %>
+password.minupper = <%= node[:password][:minupper] %>
+password.minlower = <%= node[:password][:minlower] %>
+password.minnumeric = <%= node[:password][:minnumeric] %>
+password.minspecial = <%= node[:password][:minspecial] %>
+password.retrylimit = <%= node[:password][:retrylimit] %>
+password.lockoutperiod = <%= node[:password][:lockoutperiod] %>
+password.expiration = <%= node[:password][:expiration] %>
+password.graceperiod = <%= node[:password][:graceperiod] %>
+password.reuseperiod = <%= node[:password][:reuseperiod] %>
+password.reuselimit = <%= node[:password][:reuselimit] %>
+
+# keystore
+keystore.path = ${dir.appdata}/keystore.jks
+keystore.storepass = 81uWxplDtB
+keystore.keypass = 81uWxplDtB
+keystore.type = JCEKS
+
+# default truststore
+truststore.path = ${dir.appdata}/truststore.jks
+truststore.storepass = 81uWxplDtB
+
+# server
+http.contextpath = <%= node[:http][:contextpath] %>
+server.url = <%= node[:server][:url] %>
+jmx.password = <%= node[:jmx][:password] %>
+
+http.host = <%= node[:http][:host] %>
+https.host = <%= node[:https][:host] %>
+jmx.host = <%= node[:jmx][:host] %>
+
+# options: derby, mysql, postgres, oracle, sqlserver2000, sqlserver
+database = <%= node[:database][:type] %>
+
+# examples:
+# Derby   jdbc:derby:${dir.base}/mirthdb;create=true
+# PostgreSQL  jdbc:postgresql://localhost:5432/mirthdb
+#   MySQL   jdbc:mysql://localhost:3306/mirthdb
+# Oracle    jdbc:oracle:thin:@localhost:1521:DB
+# SQLServer jdbc:jtds:sqlserver://localhost:1433/mirthdb
+database.url = <%= "jdbc:postgresql://#{node[:db_address]}:5432/mirthdb" %>
+
+# if using a custom driver, specify it here
+#database.driver = <%= node[:database][:driver] %>
+
+# database credentials
+database.username = <%= node[:db_user] %>
+database.password = <%= node[:db_password] %>

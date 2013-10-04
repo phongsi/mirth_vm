@@ -92,6 +92,14 @@ script "install_mirth" do
   EOH
   not_if "[ -f /opt/mirthconnect/mcservice ]"
 end
+
+template "/opt/mirthconnect/conf/mirth.properties" do
+  source "mirth.properties.erb"
+  mode 0644
+  owner "root"
+  group "root"
+end
+
 script "start_mirth" do
   interpreter "bash"
   user "root"
